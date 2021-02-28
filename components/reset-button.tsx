@@ -12,7 +12,20 @@ const ResetButton: FC = () => {
     dispatch({ type: BoardActionType.RESET, count: parseInt(count as string) || 6})
   }, [count])
   return (
-    <button onClick={resetBoard}>Button</button>
+    <div>
+      <button onClick={resetBoard}>Reset</button>
+      <style jsx>{`
+        button {
+          background: sienna;
+          border: none;
+          border-radius: 4em;
+          color: #FFF;
+          font-weight: bold;
+          margin: 1em;
+          padding: 1em 5em;
+        }
+      `}</style>
+    </div>
   )
 }
 
