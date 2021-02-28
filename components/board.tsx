@@ -5,7 +5,7 @@ const Board = () => {
   const { board }  = useBoardState()
   return (
     <div>
-      {board.map((card, key) => <Card key={key} value={card} />)}
+      {board.map((card, key) => <Card key={key} boardKey={key} value={card} />)}
     </div>
   )
 }

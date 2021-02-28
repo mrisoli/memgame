@@ -3,12 +3,7 @@ import {useBoardState} from "../lib/context"
 import { GameStatus } from "../types"
 
 const Status: FC = () => {
-  const { board, matched } = useBoardState()
-  const [gameStatus, setGameStatus] = useState(GameStatus.IN_PROGRESS)
-
-  useEffect(() => {
-    setGameStatus((matched.size * 2) == board.length ? GameStatus.WON  : GameStatus.IN_PROGRESS)
-  }, [board, matched])
+  const { board, gameStatus, matched } = useBoardState()
 
   return (
     <div>{gameStatus}</div>

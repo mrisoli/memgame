@@ -10,7 +10,7 @@ const ResetButton: FC = () => {
   const { count } = router.query
   const resetBoard = useCallback(() => {
     dispatch({ type: BoardActionType.RESET, count: parseInt(count as string) || 6})
-  }, [count, dispatch])
+  }, [count])
   return (
     <button onClick={resetBoard}>Button</button>
   )
