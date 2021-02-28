@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 
 import Board from '../components/board'
 import ResetButton from '../components/reset-button'
@@ -15,11 +15,14 @@ export const Home = (): JSX.Element => {
   const { active, board, matched } = useBoardState()
 
   useEffect(() => {
-    dispatch({ type: BoardActionType.RESET, count: parseInt(count as string) || 6})
+    dispatch({
+      type: BoardActionType.RESET,
+      count: parseInt(count as string) || 6,
+    })
   }, [count])
 
   useEffect(() => {
-    if ((matched.size * 2) == board.length) {
+    if (matched.size * 2 == board.length) {
       dispatch({ type: BoardActionType.FINISH_GAME })
     } else {
       dispatch({ type: BoardActionType.STOP_MATCHING })
@@ -55,7 +58,7 @@ export const Home = (): JSX.Element => {
           flex-direction: column;
           justify-content: center;
         }
-        `}</style>
+      `}</style>
     </div>
   )
 }

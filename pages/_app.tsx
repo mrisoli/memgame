@@ -2,7 +2,7 @@ import App from 'next/app'
 import { BoardProvider } from '../lib/context'
 
 class MyApp extends App {
-  render() {
+  render(): JSX.Element {
     const { Component, pageProps } = this.props
     return (
       <BoardProvider>

@@ -1,4 +1,4 @@
-import { GameStatus } from "./game-status"
+import { GameStatus } from './game-status'
 
 export enum BoardActionType {
   CHECK_MATCH = 'CHECK_MATCH',
@@ -8,11 +8,12 @@ export enum BoardActionType {
   STOP_MATCHING = 'STOP_MATCHING',
 }
 
-export type BoardAction = {type: BoardActionType.RESET, count?: number}
-  | {type: BoardActionType.SELECT_CARD, key: number}
-  | {type: BoardActionType.CHECK_MATCH}
-  | {type: BoardActionType.FINISH_GAME}
-  | {type: BoardActionType.STOP_MATCHING}
+export type BoardAction =
+  | { type: BoardActionType.RESET; count?: number }
+  | { type: BoardActionType.SELECT_CARD; key: number }
+  | { type: BoardActionType.CHECK_MATCH }
+  | { type: BoardActionType.FINISH_GAME }
+  | { type: BoardActionType.STOP_MATCHING }
 
 export type BoardDispatch = (action: BoardAction) => void
 

@@ -1,4 +1,5 @@
-import { render } from '@testing-library/react'
+import { ReactElement } from 'react'
+import { render, RenderOptions, RenderResult } from '@testing-library/react'
 // import { ThemeProvider } from "my-ui-lib"
 // import { TranslationProvider } from "my-i18n-lib"
 // import defaultStrings from "i18n/en-x-default"
@@ -14,7 +15,8 @@ const Providers = ({ children }) => {
   // )
 }
 
-const customRender = (ui, options = {}) =>
+const customRender: (ui: ReactElement, options: RenderOptions) => RenderResult =
+  (ui, options = {}) =>
   render(ui, { wrapper: Providers, ...options })
 
 // re-export everything

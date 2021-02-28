@@ -1,7 +1,7 @@
-import { FC, useCallback, useEffect, useState } from "react"
-import { useBoardDispatch, useBoardState } from "../lib/context"
-import {GameStatus} from "../types"
-import { BoardActionType } from "../types/context"
+import { FC, useCallback, useEffect, useState } from 'react'
+import { useBoardDispatch, useBoardState } from '../lib/context'
+import { GameStatus } from '../types'
+import { BoardActionType } from '../types/context'
 
 type CardProps = {
   boardKey: number
@@ -18,16 +18,17 @@ const Card: FC<CardProps> = ({ boardKey, value }) => {
   }, [active, boardKey, matched, value])
 
   const handleClick = useCallback(() => {
-    if (gameStatus == GameStatus.IN_PROGRESS
-      && !active.includes(boardKey)
-    ) {
-      dispatch({type: BoardActionType.SELECT_CARD, key: boardKey})
+    if (gameStatus == GameStatus.IN_PROGRESS && !active.includes(boardKey)) {
+      dispatch({ type: BoardActionType.SELECT_CARD, key: boardKey })
     }
   }, [active, boardKey, gameStatus, value])
 
   return (
     <div>
-      <div className={`card ${revealed ? 'shown' : 'hidden'}`} onClick={handleClick}>
+      <div
+        className={`card ${revealed ? 'shown' : 'hidden'}`}
+        onClick={handleClick}
+      >
         {revealed ? value : ''}
       </div>
       <style jsx>{`
@@ -48,7 +49,7 @@ const Card: FC<CardProps> = ({ boardKey, value }) => {
           background: #2193b0;
           background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
           background: linear-gradient(to right, #6dd5ed, #2193b0);
-          color: #FFF;
+          color: #fff;
         }
         .hidden {
           border: 1px solid #bdc3c7;
@@ -56,7 +57,7 @@ const Card: FC<CardProps> = ({ boardKey, value }) => {
           background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
           background: linear-gradient(to right, #2c3e50, #bdc3c7);
         }
-        `}</style>
+      `}</style>
     </div>
   )
 }
