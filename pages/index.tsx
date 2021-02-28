@@ -1,5 +1,9 @@
 import Head from 'next/head'
 
+import Board from '../components/board'
+import ResetButton from '../components/reset-button'
+import Status from '../components/status'
+
 export const Home = (): JSX.Element => (
   <div className="container">
     <Head>
@@ -8,9 +12,9 @@ export const Home = (): JSX.Element => (
     </Head>
 
     <main>
-      <div>Board</div>
-      <div>Status</div>
-      <div>Reset</div>
+      <Board />
+      <Status />
+      <ResetButton />
     </main>
 
     <style jsx>{`
