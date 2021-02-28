@@ -49,6 +49,12 @@ export const Home = (): JSX.Element => {
       </main>
 
       <style jsx>{`
+        main {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+        }
         `}</style>
     </div>
   )

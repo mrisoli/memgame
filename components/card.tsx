@@ -18,13 +18,46 @@ const Card: FC<CardProps> = ({ boardKey, value }) => {
   }, [active, boardKey, matched, value])
 
   const handleClick = useCallback(() => {
-    if (gameStatus == GameStatus.IN_PROGRESS) {
+    if (gameStatus == GameStatus.IN_PROGRESS
+      && !active.includes(boardKey)
+    ) {
       dispatch({type: BoardActionType.SELECT_CARD, key: boardKey})
     }
-  }, [boardKey, gameStatus, value])
+  }, [active, boardKey, gameStatus, value])
 
   return (
-    <div onClick={handleClick} >{revealed ? value : 'hidden'}</div>
+    <div>
+      <div className={`card ${revealed ? 'shown' : 'hidden'}`} onClick={handleClick}>
+        {revealed ? value : ''}
+      </div>
+      <style jsx>{`
+        .card {
+          align-items: center;
+          border-radius: 1em;
+          display: flex;
+          font-size: 1.25rem;
+          justify-content: center;
+          margin: 0.5em;
+          min-width: 2em;
+          min-height: 2em;
+          padding: 1em;
+          text-align: center;
+        }
+        .shown {
+          border: 1px solid #2193b0;
+          background: #2193b0;
+          background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+          background: linear-gradient(to right, #6dd5ed, #2193b0);
+          color: #FFF;
+        }
+        .hidden {
+          border: 1px solid #bdc3c7;
+          background: #bdc3c7;
+          background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+          background: linear-gradient(to right, #2c3e50, #bdc3c7);
+        }
+        `}</style>
+    </div>
   )
 }
 

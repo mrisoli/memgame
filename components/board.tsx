@@ -4,8 +4,14 @@ import Card from "./card"
 const Board = () => {
   const { board }  = useBoardState()
   return (
-    <div>
+    <div className='board'>
       {board.map((card, key) => <Card key={key} boardKey={key} value={card} />)}
+      <style jsx>{`
+        .board {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+        }
+        `}</style>
     </div>
   )
 }
