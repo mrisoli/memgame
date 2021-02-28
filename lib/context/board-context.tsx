@@ -1,21 +1,25 @@
-import { createContext, FC, useReducer } from 'react'
+import { createContext, FC, useContext, useReducer } from 'react'
+import { BoardAction, BoardActionType, BoardDispatch, BoardState } from '../../types/context'
+import { resetBoard } from '../utils'
 
-type Action = {type: string}
-type Dispatch = (action: Action) => void
-type State = {board: number[]}
+const BoardStateContext = createContext<BoardState | undefined>(undefined)
+const BoardDispatchContext = createContext<BoardDispatch | undefined>(undefined)
 
-const BoardStateContext = createContext<State | undefined>(undefined)
-const BoardDispatchContext = createContext<Dispatch | undefined>(undefined)
-
-const boardReducer = (state: State, action: Action) => {
+const boardReducer = (state: BoardState, action: BoardAction) => {
   switch(action.type) {
-    default:
+    case BoardActionType.RESET:
+      return {active: [], board: resetBoard(action.count), matched: new Set<number>()}
+    case BoardActionType.SELECT_CARD:
       return state
   }
 }
 
 const BoardProvider: FC = ({children}) => {
-  const [state, dispatch] = useReducer(boardReducer, undefined)
+  const [state, dispatch] = useReducer(boardReducer, {
+    active: [],
+    board: [],
+    matched: new Set<number>()
+  })
 
   return (
     <BoardStateContext.Provider value={state}>
@@ -25,4 +29,21 @@ const BoardProvider: FC = ({children}) => {
     </BoardStateContext.Provider>
   )
 }
-export {BoardProvider}
+
+const useBoardState: () => BoardState = () => {
+  const context = useContext(BoardStateContext)
+  if (context === undefined) {
+    throw new Error('useBoardState must be used within a BoardProvider')
+  }
+  return context
+}
+
+const useBoardDispatch: () => BoardDispatch = () => {
+  const context = useContext(BoardDispatchContext)
+  if (context === undefined) {
+    throw new Error('useBoardDispatch must be used within a BoardProvider')
+  }
+  return context
+}
+
+export { BoardProvider, useBoardDispatch, useBoardState }
