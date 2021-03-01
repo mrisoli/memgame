@@ -26,6 +26,7 @@ const Card: FC<CardProps> = ({ boardKey, value }) => {
   return (
     <div>
       <div
+        data-testid="card"
         className={`card ${revealed ? 'shown' : 'hidden'}`}
         onClick={handleClick}
       >

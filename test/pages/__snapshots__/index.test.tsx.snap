@@ -1,27 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home page matches snapshot 1`] = `
+exports[`Home page with default values matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="jsx-247033640 container"
+    class="jsx-3711449312 container"
   >
     <main
-      class="jsx-247033640"
+      class="jsx-3711449312"
     >
       <div
-        class="jsx-247033640"
+        class="jsx-2225232234 board"
       >
-        Board
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
+        <div
+          class="jsx-3992567685"
+        >
+          <div
+            class="jsx-3992567685 card hidden"
+            data-testid="card"
+          />
+        </div>
       </div>
       <div
-        class="jsx-247033640"
+        class="jsx-2809151022 status active"
       >
-        Status
+        <div
+          class="jsx-2809151022"
+        >
+          IN PROGRESS
+        </div>
       </div>
       <div
-        class="jsx-247033640"
+        class="jsx-1714314785"
       >
-        Reset
+        <button
+          class="jsx-1714314785"
+        >
+          Reset
+        </button>
       </div>
     </main>
   </div>

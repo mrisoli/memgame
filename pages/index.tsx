@@ -32,9 +32,12 @@ export const Home = (): JSX.Element => {
   useEffect(() => {
     if (active.length == 2) {
       dispatch({ type: BoardActionType.CHECK_MATCH })
-      setTimeout(() => {
+      const stopMatching = setTimeout(() => {
         dispatch({ type: BoardActionType.STOP_MATCHING })
-      }, 2000)
+      }, 500)
+      return () => {
+        clearTimeout(stopMatching)
+      }
     }
   }, [active.length])
 
@@ -42,7 +45,6 @@ export const Home = (): JSX.Element => {
     <div className="container">
       <Head>
         <title>Memory game</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
